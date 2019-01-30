@@ -1,0 +1,48 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Account Transfer"></Label>
+</ActionBar>
+
+<GridLayout class="page page-content transfer-page" rows="160, 80, *">
+        <!-- Chart -->
+        <StackLayout row="0" class="balance-chart">
+            <expenses-chart [data]="expensesChartDataEn"></expenses-chart>
+        </StackLayout>
+    
+        <!-- Balance Summary -->
+        <GridLayout row="1" columns="*, *, *" class="balance-summary">
+            <StackLayout col="0">
+                <Label [text]="'Income'" class="title"></Label>
+                <Label text="$1800" class="ammount"></Label>
+                <Label class="hr-light green" [style.width]="'35%'"></Label>
+            </StackLayout>
+    
+            <StackLayout col="1">
+                <Label [text]="'Expenses'" class="title"></Label>
+                <Label text="$800" class="ammount"></Label>
+                <Label class="hr-light red" [style.width]="'25%'"></Label>
+            </StackLayout>
+    
+            <StackLayout col="2">
+                <Label [text]="'Balance'" class="title"></Label>
+                <Label text="$1000" class="ammount"></Label>
+                <Label class="hr-light green" [style.width]="'15%'"></Label>
+            </StackLayout>
+        </GridLayout>
+    
+        <!-- Transactions -->
+        <StackLayout row="2">
+            <transactions-list [transactions]="transactions"></transactions-list>
+        </StackLayout>
+    </GridLayout>

@@ -1,0 +1,49 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Payment Input"></Label>
+</ActionBar>
+
+<GridLayout rows="*,*,*,*" class="page page-content">
+    <ScrollView row="0" orientation="horizontal">
+        <GridLayout class="m-l-10" columns="*,*,*,*,*,*">
+            <StackLayout col="0" class="tile" (tap)="handleTap('account')">
+                <Label text="&#xf19c;" class="fa"></Label>
+                <Label text="Account Transfer"></Label>
+            </StackLayout>
+            <StackLayout col="1" class="tile blue" (tap)="handleTap('payment')">
+                <Label text="&#xf0d6;" class="fa"></Label>
+                <Label text="Payment Approvals"></Label>
+            </StackLayout>
+            <StackLayout col="2" class="tile pink" (tap)="handleTap('pay')">
+                <Label text="&#xf002;" class="fa"></Label>
+                <Label text="Positive Pay"></Label>
+            </StackLayout>
+            <StackLayout col="3" class="tile orange" (tap)="handleTap('deposit')">
+                <Label text="&#xf0d6;" class="fa"></Label>
+                <Label text="Check Deposit"></Label>
+            </StackLayout>
+            <StackLayout col="4" class="tile green" (tap)="handleTap('transfer')">
+                <Label text="&#xf19c;" class="fa"></Label>
+                <Label text="Account Transfer"></Label>
+            </StackLayout>
+            <StackLayout col="5" class="tile yellow" (tap)="handleTap('users')">
+                <Label text="&#xf0c0;" class="fa"></Label>
+                <Label text="Manage Users"></Label>
+            </StackLayout>
+        </GridLayout>
+    </ScrollView>
+    <DockLayout row="3" #toaster class="toaster" marginTop="50" width="250" height="50">
+        <Label [text]="messageTxt" dock="top"></Label>
+    </DockLayout>
+</GridLayout>

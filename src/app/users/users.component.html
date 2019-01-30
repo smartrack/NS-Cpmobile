@@ -1,0 +1,78 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Manage Users"></Label>
+</ActionBar>
+
+<TabView class="page page-content">
+    <GridLayout rows="auto, auto" height="100%" *tabItem="{title: activeUserTitle}">
+        <SearchBar row="0" [text]="activeTabQuery" hint="Search user" class="search-bar" (textChange)="handleSearchChanged($event)"
+            (submit)="handleSearchSubmit($event)"></SearchBar>
+
+        <RadListView row="1" height="100%" [items]="activeUserList" class="list-group" swipeActions="true" (itemSwiping)="handleItemSwipe($event)" (itemSwipeProgressStarted)="onSwipeCellStarted($event)">
+            <ng-template tkListItemTemplate let-user="item">
+                <StackLayout class="list-group-item">
+                    <Label [text]="user.name" textWrap="true"></Label>
+                    <Label [text]="user.email"></Label>
+                </StackLayout>
+            </ng-template>
+            <GridLayout *tkListItemSwipeTemplate columns="auto, *, auto" class="gridLayoutLayout">
+                   <StackLayout id="delete-view" col="2" class="danger-view bg-danger" (tap)="onRightSwipeClick($event)">
+                       <Label text="Deactivate" class="danger-action"></Label>
+                   </StackLayout>
+               </GridLayout>
+        </RadListView>
+    </GridLayout>
+    <GridLayout rows="auto, auto" *tabItem="{title: 'Deactivated'}">
+
+    </GridLayout>
+</TabView>
+
+<!--
+<TabView class="page page-content">
+    <GridLayout rows="auto, auto" *tabItem="{title: activeUserTitle}">
+        <SearchBar row="0" [text]="activeTabQuery" hint="Search user" class="search-bar" (textChange)="handleSearchChanged($event)"
+            (submit)="handleSearchSubmit($event)"></SearchBar>
+
+
+        <RadListView [items]="activeUserList">
+            <ng-template tkListItemTemplate let-user="item">
+                <StackLayout class="list-group-item">
+                    <Label [text]="user.name" android:class="label-item"></Label>
+                    <Label [text]="user.email"></Label>
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+
+
+
+    </GridLayout>
+
+    <GridLayout rows="auto, auto" *tabItem="{title: 'Deactivated'}">
+        <SearchBar row="0" hint="Search user" class="search-bar" (textChange)="handleSearchChanged($event)" (submit)="handleSearchSubmit($event)"></SearchBar>
+
+        <ListView height="100%" row="1" [items]="inactiveUserList" class="list-group">
+            <ng-template let-user="item">
+                <StackLayout class="list-group-item">
+                    <Label [text]="user.name" android:class="label-item"></Label>
+                    <Label [text]="user.email"></Label>
+                </StackLayout>
+            </ng-template>
+        </ListView>
+    </GridLayout>
+
+    
+
+</TabView>
+
+-->

@@ -1,0 +1,39 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Dashboard"></Label>
+</ActionBar>
+
+<GridLayout columns="*,*" rows="*,*,*,*" class="blue-bg">
+
+    <StackLayout row="0" col="0" class="tile" (tap)="onNavItemTap('/approve')" verticalAlignment="middle">
+        <Label col="0" text="&#xf0d6;" class="fa"></Label>
+        <Label col="1" text="Payment Approvals"></Label>
+    </StackLayout>
+    <StackLayout row="0" col="1" class="tile" (tap)="onNavItemTap('/approve')" verticalAlignment="middle">
+        <Label col="0" text="&#xf15c;" class="fa"></Label>
+        <Label col="1" text="File Approvals"></Label>
+    </StackLayout>
+    <StackLayout row="1" col="0" class="tile" (tap)="onNavItemTap('/pay')" verticalAlignment="middle">
+        <Label col="0" text="&#xf002;" class="fa"></Label>
+        <Label col="1" text="Positive Pay"></Label>
+    </StackLayout>
+    <StackLayout row="1" col="1" class="tile" (tap)="onNavItemTap('/deposit')" verticalAlignment="middle">
+        <Label col="0" text="&#xf0d6;" class="fa"></Label>
+        <Label col="1" text="Check Deposit"></Label>
+    </StackLayout>
+    <StackLayout row="2" col="0" class="tile" (tap)="onNavItemTap('/payment')" verticalAlignment="middle">
+        <Label col="0" text="&#xf155;" class="fa"></Label>
+        <Label col="1" text="Payment Input"></Label>
+    </StackLayout>
+    <StackLayout row="2" col="1" class="tile" (tap)="onNavItemTap('/transfer')" verticalAlignment="middle">
+        <Label col="0" text="&#xf19c;" class="fa"></Label>
+        <Label col="1" text="Account Transfer"></Label>
+    </StackLayout>
+    <StackLayout row="3" colSpan="2" class="tile" (tap)="onNavItemTap('/users')" verticalAlignment="middle">
+        <Label col="0" text="&#xf0c0;" class="fa"></Label>
+        <Label col="1" text="Manage Users"></Label>
+    </StackLayout>
+
+</GridLayout>

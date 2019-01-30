@@ -1,0 +1,45 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
+    </ActionItem>
+    <ActionItem ios.position="right" (tap)="openCamera($event)">
+        <Label text="&#xf030;" class="fa"></Label>
+    </ActionItem>
+    <Label class="action-bar-title" text="Check Deposit"></Label>
+</ActionBar>
+
+<DockLayout stretchLastChild="true">
+    <PreviousNextView>
+        <StackLayout dock="top" class="page-header">
+            <Label text="Thumbnail View"></Label>
+        </StackLayout>
+        <StackLayout dock="bottom">
+            <SearchBar row="0" [text]="activeTabQuery" hint="Search Check deposit" class="search-bar" (textChange)="handleSearchChanged($event)"></SearchBar>
+        </StackLayout>
+        <ScrollView orientation="vertical">
+            <FlexboxLayout flexWrap="wrap">
+                <GridLayout  width="47%" marginLeft="8" marginBottom="8" height="150">
+                    <Image [src]="selectedImage" stretch="aspectFill" row="1"></Image>
+                    <Label row="1" [text]="Gallery" horizontalAlignment="center" verticalAlignment="bottom"
+                        backgroundColor="rgb(81,197,247, 0.8)" width="100%" padding="10" fontSize="13" color="white"></Label>
+                </GridLayout>
+            </FlexboxLayout>
+            <FlexboxLayout flexWrap="wrap">
+                <GridLayout *ngFor="let item of depositData" width="47%" marginLeft="8" marginBottom="8" height="150">
+                    <Image [src]="item.thumbnailUrl" stretch="aspectFill" row="1"></Image>
+                    <Label row="1" [text]="item.title" horizontalAlignment="center" verticalAlignment="bottom"
+                        backgroundColor="rgb(81,197,247, 0.8)" width="100%" padding="10" fontSize="13" color="white"></Label>
+                </GridLayout>
+            </FlexboxLayout>
+        </ScrollView>
+    </PreviousNextView>
+</DockLayout>

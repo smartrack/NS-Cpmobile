@@ -1,0 +1,48 @@
+<GridLayout rows="*, auto" class="page">
+
+    <StackLayout row="0">
+
+        <StackLayout class="m-x-auto">
+            <Label class="t-30 my-3" text="CashPro Mobile"></Label>
+        </StackLayout>
+
+        <ScrollView>
+
+            <StackLayout class="login-form">
+
+                <StackLayout class="input-field" marginTop="40">
+                    <PhxInput label="Company ID" placeholder="abcd"></PhxInput>
+                </StackLayout>
+
+                <StackLayout class="input-field" marginTop="40">
+                    <PhxInput label="User ID" placeholder="user@domain.com"></PhxInput>
+                </StackLayout>
+
+                <StackLayout class="input-field" marginTop="40">
+                    <PhxInput label="Password" type="password"></PhxInput>
+                </StackLayout>
+
+                <StackLayout class="input-field">
+                    <Button class="btn btn-login btn-rounded-sm" (tap)="login()" text="Log in"></Button>
+                </StackLayout>
+
+            </StackLayout>
+
+        </ScrollView>
+    </StackLayout>
+
+    <StackLayout row="1" class="m-x-auto">
+        <StackLayout>
+            <FlexboxLayout class="t-12 m-x-auto">
+                <Label class="m-x-2" text="Contact Bank" (tap)="goToPage('search')"></Label>
+                <Label class="m-x-2" text="|"></Label>
+                <Label class="m-x-2" text="General Disclaimer and Licenses"></Label>
+            </FlexboxLayout>
+        </StackLayout>
+        <StackLayout>
+            <Label class="t-12" text="&copy;2019 Bank of America Corporation. All rights reserved"></Label>
+        </StackLayout>
+
+    </StackLayout>
+
+</GridLayout>

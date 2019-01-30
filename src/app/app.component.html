@@ -1,0 +1,57 @@
+<!--
+RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
+-->
+<RadSideDrawer [drawerTransition]="sideDrawerTransition">
+    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+        <StackLayout row="0" class="sidedrawer-header">
+            <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
+            <Label class="sidedrawer-header-brand" text="Jagadesh Kannan"></Label>
+            <Label class="footnote" text="kannan.jagadesh@baml.com"></Label>
+        </StackLayout>
+    
+        <ScrollView row="1">
+            <StackLayout class="sidedrawer-content">
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/dashboard')" (tap)="onNavItemTap('/dashboard')">
+                    <Label col="0" text="&#xf0d6;" class="fa"></Label>
+                    <Label col="1" text="Payment Approvals" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/approve')" (tap)="onNavItemTap('/approve')">
+                    <Label col="0" text="&#xf15c;" class="fa"></Label>
+                    <Label col="1" text="File Approvals" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/pay')" (tap)="onNavItemTap('/pay')">
+                    <Label col="0" text="&#xf002;" class="fa"></Label>
+                    <Label col="1" text="Positive Pay" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/deposit')" (tap)="onNavItemTap('/deposit')">
+                    <Label col="0" text="&#xf0d6;" class="fa"></Label>
+                    <Label col="1" text="Check Deposit" class="p-r-10"></Label>
+                </GridLayout>
+                
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/payment')" (tap)="onNavItemTap('/payment')">
+                    <Label col="0" text="&#xf155;" class="fa"></Label>
+                    <Label col="1" text="Payment Input" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/transfer')" (tap)="onNavItemTap('/transfer')">
+                    <Label col="0" text="&#xf19c;" class="fa"></Label>
+                    <Label col="1" text="Account Transfer" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr-light"></StackLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/users')" (tap)="onNavItemTap('/users')">
+                    <Label col="0" text="&#xf0c0;" class="fa"></Label>
+                    <Label col="1" text="Manage Users" class="p-r-10"></Label>
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+
+    <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
+</RadSideDrawer>
