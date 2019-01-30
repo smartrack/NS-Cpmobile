@@ -46,7 +46,6 @@ export class DashboardComponent {
     }
 
     onNavItemTap(navItemRoute: string): void {
-
         this.routerExtensions.navigate([navItemRoute], {
             transition: {
                 name: "fade"

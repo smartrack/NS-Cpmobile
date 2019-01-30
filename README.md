@@ -36,7 +36,9 @@
 - Only 7 Advanced Components ( SideDrawer, AutoComplete, ListView, Chart, Calendar, DataForm, Gauge)
 - Not really stable UI Components
 
-## Docs
+## App Walkthrough
+
+![App Walkthrough](cpmobile-walkthrough.gif)
 
 
 ## Quick Start

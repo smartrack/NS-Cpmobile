@@ -14,8 +14,8 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
         <ScrollView row="1">
             <StackLayout class="sidedrawer-content">
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/dashboard')" (tap)="onNavItemTap('/dashboard')">
-                    <Label col="0" text="&#xf0d6;" class="fa"></Label>
-                    <Label col="1" text="Payment Approvals" class="p-r-10"></Label>
+                    <Label col="0" text="&#xf00a;" class="fa"></Label>
+                    <Label col="1" text="Dashboard" class="p-r-10"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/approve')" (tap)="onNavItemTap('/approve')">
@@ -49,6 +49,12 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <Label col="0" text="&#xf0c0;" class="fa"></Label>
                     <Label col="1" text="Manage Users" class="p-r-10"></Label>
                 </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="onNavItemTap('/login')">
+                    <Label col="0" text="&#xf011;" class="fa"></Label>
+                    <Label col="1" text="Logout" class="p-r-10"></Label>
+                </GridLayout>
+
             </StackLayout>
         </ScrollView>
     </GridLayout>

@@ -26,15 +26,14 @@ export class InputComponent implements OnInit {
         label.animate({
             opacity: 1,
             translate: { x: 0, y : -50},
-            duration: 100,
-            curve: AnimationCurve.easeIn
+            duration: 250,
+            curve: AnimationCurve.easeInOut
         });
         // console.log(this.labelField);
     }
 
     handleBlur($event: EventData): void {
         this.renderer.removeClass($event.object, "focus");
-        console.log(this.labelField.nativeElement);
     }
 
     ngOnInit() {

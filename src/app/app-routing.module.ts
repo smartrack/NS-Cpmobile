@@ -5,7 +5,7 @@ import { LoginComponent } from "./login/login.component";
 import { InputComponent } from "./shared/input/input.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/transfer", pathMatch: "full" },
+    { path: "", redirectTo: "/login", pathMatch: "full" },
     { path: "login", component: LoginComponent},
     { path: "dashboard", loadChildren: "~/app/dashboard/dashboard.module#DashboardModule"},
     { path: "approve", loadChildren: "~/app/approve/approve.module#ApproveModule" },
